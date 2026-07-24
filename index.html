@@ -318,7 +318,7 @@
 
             <address class="footer-item footer-endereco">
                 <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                <span>Rua Projetada, 123<br>Bairro Industrial<br>Colatina - ES</span>
+                <span>Av. Brasil<br>Maria das Graças<br>Colatina - ES</span>
             </address>
 
             <a class="footer-item" href="tel:+5527996353189">
@@ -326,7 +326,7 @@
                 <span>Telefone<br><strong>(27) 99635-3189</strong></span>
             </a>
 
-            <a class="footer-item" href="https://www.instagram.com/lpmotos/" target="_blank" rel="noopener noreferrer">
+            <a class="footer-item" href="https://www.instagram.com/l.p.motos?igsh=MW5wbDJjdW9hc3FjNA==" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                 <span>Instagram<br><strong>@lpmotos</strong></span>
             </a>
@@ -335,6 +335,9 @@
         </div>
     </footer>
 
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -345,6 +348,7 @@
     const menu = document.getElementById("menu");
     const themeToggle = document.getElementById("theme-toggle");
     const themeIcon = themeToggle.querySelector("i");
+    const backToTop = document.getElementById("back-to-top");
 
     // Aplica o tema escolhido no body e troca o icone do botao.
     function applyTheme(theme) {
@@ -362,6 +366,18 @@
         );
 
     }
+
+        // Exibe o atalho somente depois de uma rolagem significativa.
+    function updateBackToTopVisibility() {
+        backToTop.classList.toggle("is-visible", window.scrollY >= 400);
+    }
+
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+    updateBackToTopVisibility();
 
     // Usa o tema salvo; se ainda nao existir, inicia sempre no tema claro.
     const savedTheme = localStorage.getItem("theme");
