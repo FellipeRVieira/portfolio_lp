@@ -64,7 +64,7 @@ body.dark-theme{
 }
 
 .logo span{
-    color:var(--branco);
+    color: var(--laranja-principal);
 }
 
 .logo:hover span{
